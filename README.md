@@ -1,9 +1,6 @@
 # SoCResearch
 # 2026 Memory/Interconnection/AI Technical Conferences for SoC
-
-> **维护者**: SoC Design Team
-> **最后更新**: 2026-02-11
-> **领域**: High-Speed Interface, Memory Controller, PHY, System Architecture
+High-Speed Interface, Memory Controller/PHY, System Architecture
 
 ## 📅 Q1 & Q2 (Spring/Summer) - 核心技术与标准
 
