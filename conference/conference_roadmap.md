@@ -1,7 +1,5 @@
-# 高速互联与存储系统 (High-Speed Interconnect & Memory Systems)
+# 2026高速互联与存储系统关键会议
 
-> **维护周期**: 2026 年度
-> **最后更新**: 2026-02-11
 
 ## 📅 Q1 & Q2 (Spring/Summer) - 核心技术与标准定义
 
