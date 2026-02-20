@@ -1,1 +1,31 @@
-This directory is used for summary ethernet tech, including 802.3 and serdes
+## This directory is used for summary ethernet tech, including 802.3 and serdes
+| 速率 | PMD 名称 | Lane 速率 (Gbps) | 调制方式 | 通道数 | PCS 编码与 FEC 要求 | 传输介质 | 插入损耗 (IL @ Nyquist) | 所属标准 | 条款 (Clause) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **10G** | 10GBASE-KR | 10.3125 | **NRZ** | 1 | 64B/66B; 可选 Fire Code (Cl 74) | 背板 | ~20 dB | 802.3ap | Cl 72 |
+| **40G** | 40GBASE-KR4 | 10.3125 | **NRZ** | 4 | 64B/66B; 可选 Fire Code (Cl 74) | 背板 | ~20 dB | 802.3ba | Cl 84 |
+| **40G** | 40GBASE-CR4 | 10.3125 | **NRZ** | 4 | 64B/66B; 可选 Fire Code (Cl 74) | 无源铜缆 | ~17 dB | 802.3ba | Cl 85 |
+| **100G** | 100GBASE-KR4 | 25.78125 | **NRZ** | 4 | 256B/257B; **强制 RS-FEC(528,514)** | 背板 | ~35 dB | 802.3bj | Cl 93 |
+| **100G** | 100GBASE-CR4 | 25.78125 | **NRZ** | 4 | 256B/257B; **强制 RS-FEC(528,514)** | 无源铜缆 | ~35 dB | 802.3bj | Cl 92 |
+| **100G** | 100GBASE-KR2 | 53.125 | **PAM4** | 2 | 256B/257B; **强制 RS-FEC(544,514)** | 背板 | ~30 dB | 802.3cd | Cl 137 |
+| **100G** | 100GBASE-CR2 | 53.125 | **PAM4** | 2 | 256B/257B; **强制 RS-FEC(544,514)** | 无源铜缆 | ~30 dB | 802.3cd | Cl 136 |
+| **100G** | 100GBASE-KR1 | 106.25 | **PAM4** | 1 | 256B/257B; **强制 RS-FEC(544,514) 交织** | 背板 | ~28.5 dB | 802.3ck | **Cl 163** |
+| **100G** | 100GBASE-CR1 | 106.25 | **PAM4** | 1 | 256B/257B; **强制 RS-FEC(544,514) 交织** | 无源铜缆 | ~28.5 dB | 802.3ck | **Cl 162** |
+| **200G** | 200GBASE-KR4 | 53.125 | **PAM4** | 4 | 256B/257B; **强制 RS-FEC(544,514)** | 背板 | ~30 dB | 802.3bs | Cl 137 |
+| **200G** | 200GBASE-CR4 | 53.125 | **PAM4** | 4 | 256B/257B; **强制 RS-FEC(544,514)** | 无源铜缆 | ~30 dB | 802.3bs | Cl 136 |
+| **200G** | 200GBASE-KR2 | 106.25 | **PAM4** | 2 | 256B/257B; **强制 RS-FEC(544,514) 交织** | 背板 | ~28.5 dB | 802.3ck | Cl 163 |
+| **200G** | 200GBASE-CR2 | 106.25 | **PAM4** | 2 | 256B/257B; **强制 RS-FEC(544,514) 交织** | 无源铜缆 | ~28.5 dB | 802.3ck | Cl 162 |
+| **200G** | 200GBASE-KR1 | 212.5 | **PAM4** | 1 | **强制 级联 FEC (Outer-RS + Inner)** | 背板 | ~30 dB | 802.3dj | **Cl 178** |
+| **200G** | 200GBASE-CR1 | 212.5 | **PAM4** | 1 | **强制 级联 FEC (Outer-RS + Inner)** | 无源铜缆 | ~28 dB | 802.3dj | **Cl 179** |
+| **400G** | 400GBASE-KR8 | 53.125 | **PAM4** | 8 | 256B/257B; **强制 RS-FEC(544,514)** | 背板 | ~30 dB | 802.3bs | Cl 137 |
+| **400G** | 400GBASE-CR8 | 53.125 | **PAM4** | 8 | 256B/257B; **强制 RS-FEC(544,514)** | 无源铜缆 | ~30 dB | 802.3bs | Cl 136 |
+| **400G** | 400GBASE-KR4 | 106.25 | **PAM4** | 4 | 256B/257B; **强制 RS-FEC(544,514) 交织** | 背板 | ~28.5 dB | 802.3ck | Cl 163 |
+| **400G** | 400GBASE-CR4 | 106.25 | **PAM4** | 4 | 256B/257B; **强制 RS-FEC(544,514) 交织** | 无源铜缆 | ~28.5 dB | 802.3ck | Cl 162 |
+| **400G** | 400GBASE-KR2 | 212.5 | **PAM4** | 2 | **强制 级联 FEC (Outer-RS + Inner)** | 背板 | ~30 dB | 802.3dj | Cl 178 |
+| **400G** | 400GBASE-CR2 | 212.5 | **PAM4** | 2 | **强制 级联 FEC (Outer-RS + Inner)** | 无源铜缆 | ~28 dB | 802.3dj | Cl 179 |
+| **800G** | 800GBASE-KR8 | 106.25 | **PAM4** | 8 | 256B/257B; **强制 RS-FEC(544,514) 交织** | 背板 | ~28.5 dB | 802.3ck | Cl 163 |
+| **800G** | 800GBASE-CR8 | 106.25 | **PAM4** | 8 | 256B/257B; **强制 RS-FEC(544,514) 交织** | 无源铜缆 | ~28.5 dB | 802.3ck | Cl 162 |
+| **800G** | 800GBASE-KR4 | 212.5 | **PAM4** | 4 | **强制 级联 FEC (Outer-RS + Inner)** | 背板 | ~30 dB | 802.3dj | Cl 178 |
+| **800G** | 800GBASE-CR4 | 212.5 | **PAM4** | 4 | **强制 级联 FEC (Outer-RS + Inner)** | 无源铜缆 | ~28 dB | 802.3dj | Cl 179 |
+| **1.6T** | 1.6TBASE-KR8 | 212.5 | **PAM4** | 8 | **强制 级联 FEC (Outer-RS + Inner)** | 背板 | ~30 dB | 802.3dj | Cl 178 |
+| **1.6T** | 1.6TBASE-CR8 | 212.5 | **PAM4** | 8 | **强制 级联 FEC (Outer-RS + Inner)** | 无源铜缆 | ~28 dB | 802.3dj | Cl 179 |
+
