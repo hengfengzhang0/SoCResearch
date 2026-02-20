@@ -1,0 +1,6 @@
+| 厂商 | PHY 系列名称 | 核心架构 | 最高速率 / 协议支持 | 对标 OIF CEI 规格 (Reach) | 插损支持 (IL @Nyquist) | Pre-FEC BER (典型值) | 介质支持 (光互联/铜缆/背板) | LPO/CPO 支持 | 能效比 (pJ/bit) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Synopsys** | DesignWare High-Speed SerDes | ADC + DSP (112G+) | **224G PAM4**; PCIe 7.0/6.0, CXL 3.1, 1.6T Eth | **XSR/VSR/MR/LR** | **40dB+** (LR/ELR) | 1e-4 ~ 2e-5 | 传统光模块, DAC, AEC, Backplane, PCB | **强支持** (提供线性模式固件) | 112G: ~5.0; 64G: ~4.5 |
+| **Alphawave** | AlphaCore / Zeus / Pipe3 | **Pure DSP** (全速率优化) | **224G PAM4**; **UALink**, PCIe 7.0, NVLink, Eth | **XSR+/VSR/MR/LR/ELR** | **45dB+** (业内最强驱离) | **< 1e-5** (裕量极高) | CPO/CPC, DAC, AEC, 超长背板 | **核心支持** (DSP Bypass 技术) | 112G: ~4.5; 64G: ~4.0 |
+| **Cadence** | 224G-ELR / Multi-Protocol | ADC + DSP | **224G PAM4**; 800G/1.6T Eth, IB NDR, PCIe 5.0 | **VSR/MR/LR/ELR** | **45dB** (ELR 场景) | ~1e-4 | 传统光模块, SAS/SATA, DAC, Backplane | **支持** (具备 VSR 优化模式) | 112G: ~4.8; 32G: <3.0 |
+| **Marvell** | Marvell DSP SerDes (自用/定制) | High-perf DSP | **224G PAM4**; 800G Eth, Custom AI Link | **VSR/MR/LR** | **38dB+** | 2e-4 ~ 1e-5 (针对 LPO 优化) | **LPO 优化**, DAC, AEC, CPC | **领军支持** (800G LPO 生态主导) | 112G: ~5.2 (侧重系统能效) |

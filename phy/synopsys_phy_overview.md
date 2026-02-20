@@ -1,6 +1,0 @@
-| 厂商 | PHY 系列名称 | 核心架构 | 最高速率 / 核心段 | 协议支持 (PCIe, UALink, Eth等) | 插损支持 (IL) | 能效比 (pJ/bit) | 面积密度 (Gbps/mm²) | 配套 PCS/MAC | LPO 支持情况 |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Synopsys** | DesignWare High-Speed SerDes / PCIe PHY | ADC + DSP (112G+) / Analog (32G-) | **224G PAM4** / 128G / 64G | PCIe 7.0/6.0/5.0, CXL 3.1/3.0/2.0, 1.6T/800G Eth, CCIX | >40dB (LR/ELR) | 112G: ~5.0; 64G: ~4.5 | 极高 (针对 N3/N2 深度优化) | 提供全栈自研 Controller + PCS | **强支持** (提供线性驱动优化固件) |
-| **Alphawave** | AlphaCore / Zeus / Pipe3 | **Pure DSP** (全速率段优化) | **224G PAM4** / 112G / 128G | **UALink (核心成员)**, PCIe 7.0/6.0, 1.6T Eth, CXL 3.x, NVLink (定制) | **>45dB** (行业领先的驱离能力) | 112G: ~4.5; 64G: ~4.0 | **行业标杆** (架构非常紧凑) | 提供完整 Subsystem 集成 | **重点支持** (LPO 生态核心推动者) |
-| **Cadence** | Cadence 224G-ELR / Multi-Protocol | ADC + DSP | **224G PAM4** / 112G / 32G | 800G/1.6T Eth, InfiniBand NDR/GDR, PCIe 5.0/4.0, USB4, DP 2.1 | >40dB (ELR 系列) | 112G: ~4.8; 32G: <3.0 | 针对台积电工艺高度定制 | 配套自研 Controller + PCS | **支持** (具备 VSR/Linear 专用模式) |
-| **Marvell** | Marvell DSP SerDes (含自用/定制) | High-perf DSP | **224G PAM4** / 112G / 56G | 800G/1.6T Eth, 51.2T/102.4T Switch Fabric, 定制 AI 互联协议 | >38dB | 112G: ~5.2 (侧重系统级能效) | 高 (针对 ASIC 设计优化) | 深度集成于 Marvell 交换/计算架构 | **领军支持** (800G LPO 方案最成熟厂商) |
