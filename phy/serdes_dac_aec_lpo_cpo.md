@@ -102,3 +102,125 @@ From Copper to Optics: The Evolution of Serdes
 
 ### 4. 结论
 *   **结论：** 演进的终局是 **IO 密度 (Gbps/mm) 的爆发式增长**。
+
+
+## 巨头博弈：AI 计算领域的光铜技术选择对比
+
+不同公司由于其在产业链中的位置（芯片设计 vs. 终端用户 vs. 设备商）以及自身的架构积累，对“光进铜退”的节奏和技术路线选择存在显著差异。
+
+---
+
+### 1. 芯片设计巨头 (Chip Designers)
+**核心逻辑：** 追求极致的算力密度和互连带宽，定义物理层标准。
+
+#### **NVIDIA (英伟达)**
+*   **核心策略：** **铜的极限挖掘者 + 光的坚定拥护者**
+*   **铜 (Copper) 选择：**
+    *   **NVL72 架构 (Blackwell)：** 在单机柜内部（72卡互连），放弃光互连，使用 **5000+ 根铜缆** 构建巨大的铜背板 (Copper Backplane)。
+    *   **理由：** 机柜内短距 (<1m) 场景下，铜的功耗、成本和可靠性优于光。通过私有协议 (NVLink) 和定制 SerDes 榨干铜的物理极限。
+*   **光 (Optics) 选择：**
+    *   **Scale-out (机柜间)：** 全面拥抱光 (InfiniBand / Spectrum-X Ethernet)。
+    *   **路线：** 主流为可插拔模块 (OSFP)，积极布局 **LPO** 和 **CPO** 以应对未来 X1600 互连。
+
+#### **Intel (英特尔)**
+*   **核心策略：** **硅光技术的领跑者 (Silicon Photonics Leader)**
+*   **铜 (Copper) 选择：**
+    *   传统服务器依然大量使用 DAC/AEC，但在 AI 高性能集群试图通过光技术弯道超车。
+*   **光 (Optics) 选择：**
+    *   **CPO (光电合封)：** 利用 IDM 优势，致力于将硅光引擎直接集成到 CPU/XPU 封装中。
+    *   **路线：** 演示 TCP (Tightly Coupled Photonics) 技术，主导 UEC 标准，推动全光互连。
+
+#### **AMD**
+*   **核心策略：** **务实的 Chiplet 拥护者**
+*   **铜 (Copper) 选择：**
+    *   Infinity Fabric 在节点内互连依然依赖高性能 PCB 和铜。
+*   **光 (Optics) 选择：**
+    *   **合作生态：** 倾向于与光模块厂商合作而非全自研。
+    *   **路线：** 重点关注 **LPO** (低功耗/高性价比)，利用 UCIe 接口标准为集成光 Chiplet 铺路。
+
+---
+
+### 2. 互联网/云服务巨头 (Hyperscalers)
+**核心逻辑：** 追求大规模集群的 TCO (总拥有成本) 和能效比，愿意尝试定制化方案。
+
+#### **Google**
+*   **核心策略：** **光交换的先驱 (Optical First)**
+*   **铜 (Copper) 选择：**
+    *   仅在 TPU Pod 内部极短距离使用 DAC。
+*   **光 (Optics) 选择：**
+    *   **OCS (Optical Circuit Switch)：** 全球唯一大规模商用 OCS (Apollo 网络)，用 MEMS 镜面反射光信号替代传统电交换。
+    *   **路线：** 极其激进，大量定制光模块，推动 800G/1.6T 快速落地，看重光的灵活性和低延时。
+
+#### **Microsoft (Azure)**
+*   **核心策略：** **AEC 的最大推手 + 标准化以太网**
+*   **铜 (Copper) 选择：**
+    *   **AEC (有源电缆)：** 微软是 AEC 技术的最大买家。解决 112G 时代 DAC 线缆太粗太硬、无法在拥挤机架中布线的痛点。
+*   **光 (Optics) 选择：**
+    *   **InfiniBand & Ethernet：** AI 集群 (ChatGPT 训练) 大量使用 IB 光互连。
+    *   **路线：** 正在从可插拔向 **CPO/NPO** (Near Package Optics) 演进，旨在降低数据中心 PUE。
+
+---
+
+
+### 4. 网络交换核心：芯片与系统厂商的架构抉择
+
+处于产业链核心位置的交换芯片与设备厂商，直接决定了 SerDes 速率的演进节奏。它们需要在**单芯片容量 (Switch Capacity)**、**功耗 (Power)** 和 **I/O 密度** 之间寻找平衡。
+
+---
+
+#### Broadcom (博通)：商用芯片的 CPO 激进派
+**角色定位：** 全球最大的商用交换芯片供应商 (Merchant Silicon)，其 Tomahawk 和 Jericho 系列芯片定义了数据中心网络的代际演进。
+
+##### 1. SerDes 演进策略：定义行业标杆
+*   **技术现状：** Broadcom 的 **Peregrine SerDes IP** 是行业的标杆。在 **Tomahawk 5 (51.2T)** 这一代，其 100G PAM4 SerDes 展现了极强的驱动能力，依然能够支持 3-4 米的 DAC 铜缆，强行延续了铜缆的生命周期。
+*   **未来规划：** 在 **Tomahawk 6 (102.4T)** 及 224G 时代，Broadcom 明确指出 PCB 和铜缆的物理极限已到，电信号传输距离将大幅缩短。
+
+##### 2. 光/铜路线选择：CPO 的最大推手
+*   **CPO (光电合封) 战略：**
+    *   Broadcom 是 CPO 技术最激进的推动者。他们推出了 **"Bailly"** CPO 交换机系统，将硅光引擎 (Silicon Photonics Engine) 直接与 Tomahawk 芯片封装在一起。
+    *   **商业逻辑：** 通过 CPO，Broadcom 不仅卖交换芯片，还能把高价值的光互连组件（光引擎）一并卖给客户，从而在后摩尔定律时代通过“系统级销售”维持高利润。
+*   **铜的定位：** 在 51.2T 节点，依然提供支持 DAC/AEC 的标准版本，以满足成本敏感型客户（如二线云厂商）的需求。
+
+---
+
+#### Huawei (华为)：端到端系统的 LPO 务实派
+**角色定位：** 拥有自研芯片 (Hisilicon)、光模块 (Hisilicon Optoelectronics) 和交换机 (CloudEngine) 的全栈系统厂商。
+
+##### 1. SerDes 演进策略：系统级协同优化
+*   **技术现状：** 依托海思芯片，华为在 SerDes 与系统背板的协同设计上具有独特优势。
+*   **核心理念：** **“无损网络” (Lossless Ethernet)**。华为非常看重低延时和零丢包，因此对 SerDes 的误码率 (BER) 和链路稳定性要求极高。
+
+##### 2. 光/铜路线选择：LPO 的坚定捍卫者
+*   **LPO (线性直驱) 战略：**
+    *   华为是 LPO 技术的主要贡献者和早期采用者。
+    *   **技术逻辑：** LPO 移除了光模块中的 DSP，虽然对 Host SerDes 的线性度要求极高，但华为作为**系统厂商**，可以同时控制交换机芯片 (Host) 和光模块 (Module) 的设计。这种**端到端的控制力**使得华为能够完美调校链路，解决 LPO 的互操作性难题，从而获得更低的功耗和延时。
+*   **全光底座：** 华为倾向于将光技术下沉。在 AI 集群 (Atlas 900) 中，华为利用其在光传输领域的积累，推动全光互连，减少电层的转换跳数。
+
+---
+
+### 全局总结对比表 (更新版)
+
+| 公司类型 | 代表公司 | 铜 (Copper) 策略 | 光 (Optics) 策略 | 关键技术关键词 |
+| :--- | :--- | :--- | :--- | :--- |
+| **芯片设计** | **NVIDIA** | **极致挖掘** (NVL72 铜背板) | **Scale-out 标配** (OSFP) | NVLink, Copper Backplane |
+| | **Intel** | 传统应用 | **激进集成** (CPO/SiPh) | Silicon Photonics, CPO |
+| | **AMD** | 节点内互连 | **务实演进** (LPO/UCIe) | Infinity Fabric, Chiplet |
+| **互联网** | **Google** | 极短距应用 | **架构革新** (OCS 光交换) | OCS, TPU Pods |
+| | **Microsoft** | **AEC 主力军** (解决布线痛点) | 标准化 IB/Ethernet | AEC, InfiniBand |
+| **交换机/系统** | **Broadcom** | **延续生命** (强力 SerDes 支持 DAC) | **商业整合** (CPO 吞噬光引擎) | Tomahawk, CPO (Bailly) |
+| | **Huawei** | 逐步替代 | **系统优化** (LPO 端到端调校) | LPO, Lossless Ethernet |
+
+---
+
+### 行业趋势总结
+
+1.  **铜的韧性 (Copper Resilience)：**
+    *   NVIDIA 和 Broadcom 证明了，只要系统设计得当（如 NVL72 背板）或 SerDes 足够强（Tomahawk 5），铜在机柜内部（Scale-up）依然是**成本和功耗的王者**。
+
+2.  **光的两条路 (The Fork in the Road for Optics)：**
+    *   **LPO (演进派)：** 以华为、AMD 为代表。在不改变现有封装形态的前提下，通过去 DSP 化降低功耗。这需要强大的**系统级调校能力**。
+    *   **CPO (革命派)：** 以 Intel、Broadcom 为代表。试图将光引擎封装进芯片，彻底解决 I/O 瓶颈。这更多是**商业模式和封装技术**的竞争。
+
+3.  **终局思维 (End Game)：**
+    *   无论是互联网巨头（Google OCS）还是设备商（Huawei 全光网），大家的终极目标都是**“光进铜退”**，将光传输尽可能地靠近计算核心 (ASIC)，以打破物理损耗的墙。
+```
