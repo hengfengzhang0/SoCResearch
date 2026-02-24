@@ -1,5 +1,6 @@
 
-# 从铜到光：高速 SerDes 演进
+# 从铜到光：高速 SerDes 演进 
+From Copper to Optics: The Evolution of Serdes
 
 > **注：** 以下数据以主流 **112G PAM4** 工艺节点为基准参考，部分前瞻性指标涉及 224G。
 
